@@ -41,7 +41,7 @@ export default function Dashboard({ authStatus, authLoading, onRefresh }) {
         managedRows.filter((row) => row.youtube_id).map((row) => [String(row.youtube_id), row]),
       )
 
-      const API_BASE = (import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api').replace(/\/$/, '')
+      const API_BASE = (import.meta.env.VITE_API_BASE_URL || '/api').replace(/\/$/, '')
 
       const merged = channelRows.map((row) => {
         const linked = row.youtube_id ? managedByYoutube.get(String(row.youtube_id)) : undefined
