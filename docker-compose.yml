@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  ytscheduler:
+    build: .
+    container_name: ytscheduler
+    ports:
+      - "5199:5199"
+    volumes:
+      - ./.env:/app/backend-node/.env
+      - ./client_secret.json:/app/client_secret.json
+      - ./uploads:/app/uploads
+    environment:
+      - PORT=5199
+      - NODE_ENV=production
+    restart: always
+
+networks:
+  default:
+    name: ytscheduler_network

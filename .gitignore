@@ -1,0 +1,41 @@
+# Python & System
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+**/.env
+**/*.env
+*.zip
+.DS_Store
+
+# Database
+*.db
+*.sqlite3
+data/
+**/data/
+
+# Secrets
+client_secret.json
+**/client_secret.json
+tokens/
+**/tokens/
+
+# Uploads
+backend/uploads/
+uploads/
+**/uploads/
+
+# Node/Frontend
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+build/
+**/build/
+deploy_bundle/
+**/deploy_bundle/
+
+# IDEs
+.vscode/
+.idea/

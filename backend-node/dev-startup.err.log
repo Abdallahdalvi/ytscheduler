@@ -1,0 +1,86 @@
+Supabase credentials are missing. Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.
+C:\Users\abdallahmini\Social Media Management Tool\backend-node\node_modules\@supabase\supabase-js\src\lib\helpers.ts:86
+    throw new Error('supabaseUrl is required.')
+          ^
+
+
+Error: supabaseUrl is required.
+    at validateSupabaseUrl (C:\Users\abdallahmini\Social Media Management Tool\backend-node\node_modules\@supabase\supabase-js\src\lib\helpers.ts:86:11)
+    at SupabaseClient (C:\Users\abdallahmini\Social Media Management Tool\backend-node\node_modules\@supabase\supabase-js\src\SupabaseClient.ts:284:21)
+    at createClient (C:\Users\abdallahmini\Social Media Management Tool\backend-node\node_modules\@supabase\supabase-js\src\index.ts:65:10)
+    at <anonymous> (C:\Users\abdallahmini\Social Media Management Tool\backend-node\src\lib\supabase.ts:9:25)
+    at ModuleJob.run (node:internal/modules/esm/module_job:222:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)
+    at async loadESM (node:internal/process/esm_loader:28:7)
+    at async handleMainPromise (node:internal/modules/run_main:113:12)
+
+Node.js v20.12.2
+
+<--- Last few GCs --->
+
+[2968:000001B993833640]   139114 ms: Scavenge 6.1 (7.7) -> 5.8 (6.9) MB, 0.92 / 0.00 ms  (average mu = 0.990, current mu = 0.990) task; 
+
+
+<--- JS stacktracruntime.(*mheap).sysAlloc(0x7ff6f39598a0, 0x4?, 0x7ff6f3969ca0, 0x7ff6f3969cc8)
+	runtime/malloc.go:776 +0x3b6 fp=0xcb393ff8f0 sp=0xcb393ff 1: 00007FF6BE92C94B 
+ 2: 00007FF6BE896764 
+ 3: 00007FF6BF3149A1 
+ 4: 00007FF6BF2FE0F8 
+ 5: 00007FF6BF15FBA0 
+ 6: 00007FF6BF1179A3 
+ 7: 00007FF6BF169260 
+ 8: 00007FF6BF15C8C0 
+ 9: 00007FF6BF171F3A 
+10: 00007FF6BF1727B7 
+11: 00007FF6BF1810AF 
+12: 00007FF6BEE41DD5 
+13: 00007FF6BF3C62CE 
+14: 00007FF6BF409989 
+15: 00007FF63F54CB1B 
+7 +0x5c fp=0xcb393ffa60 sp=0xcb393ffa18 pc=0x7ff6f2ece29c
+runtime.(*mheap).alloc(0x7ff6f2f1ee61?, 0xcb393ffac8?, 0x0?)
+	runtime/mheap.go:1011 +0x5b fp=0xcb393ffaa8 sp=0xcb393ffa60 pc=0x7ff6f2ece1fb
+runtime.(*mcentral).grow(0x7ff6f2f209c0?)
+	runtime/mcentral.go:253 +0x36 fp=0xcb393ffad8 sp=0xcb393ffaa8 pc=0x7ff6f2eb9c16
+runtime.(*mcentral).cacheSpan(0x7ff6f396b538)
+	runtime/mcentral.go:171 +0x42e fp=0xcb393ffb50 sp=0xcb393ffad8 pc=0x7ff6f2eb9aae
+runtime.(*mcache).refill(0x222f1060108, 0xf8?)
+	runtime/mcache.go:184 +0x153 fp=0xcb393ffb90 sp=0xcb393ffb50 pc=0x7ff6f2eb90d3
+runtime.(*mcache).nextFree(0x222f1060108, 0x20)
+	runtime/malloc.go:968 +0x7e fp=0xcb393ffbc8 sp=0xcb393ffb90 pc=0x7ff6f2eb56de
+runtime.mallocgcSmallScanNoHeader(0xe0, 0x7ff6f3482560)
+	runtime/malloc.go:1378 +0x145 fp=0xcb393ffc28 sp=0xcb393ffbc8 pc=0x7ff6f2eb5fa5
+runtime.mallocgc(0xe0, 0x7ff6f3482560, 0x1)
+	runtime/malloc.go:1066 +0xa5 fp=0xcb393ffc58 sp=0xcb393ffc28 pc=0x7ff6f2f14fc5
+runtime.newobject(0xcb393ffcb8?)
+	runtime/malloc.go:1747 +0x25 fp=0xcb393ffc80 sp=0xcb393ffc58 pc=0x7ff6f2eb6aa5
+internal/cpu.doinit()
+	internal/cpu/cpu_x86.go:52 +0x1e fp=0xcb393ffce0 sp=0xcb393ffc80 pc=0x7ff6f2ea213e
+internal/cpu.Initialize({0x0, 0x0})
+	internal/cpu/cpu.go:168 +0x1d fp=0xcb393ffd00 sp=0xcb393ffce0 pc=0x7ff6f2ea1b9d
+runtime.cpuinit(...)
+	runtime/proc.go:763
+runtime.schedinit()
+	runtime/proc.go:876 +0xe5 fp=0xcb393ffd50 sp=0xcb393ffd00 pc=0x7ff6f2ee4445
+runtime.rt0_go()
+	runtime/asm_amd64.s:349 +0x13c fp=0xcb393ffd58 sp=0xcb393ffd50 pc=0x7ff6f2f1d03c
+
+node:internal/process/esm_loader:34
+      internalBinding('errors').triggerUncaughtException(
+                                ^
+Error [TransformError]: The service was stopped
+    at C:\Users\abdallahmini\Social Media Management Tool\backend-node\node_modules\esbuild\lib\main.js:999:38
+    at responseCallbacks.<computed> (C:\Users\abdallahmini\Social Media Management Tool\backend-node\node_modules\esbuild\lib\main.js:884:9)
+    at Socket.afterClose (C:\Users\abdallahmini\Social Media Management Tool\backend-node\node_modules\esbuild\lib\main.js:875:28)
+    at Socket.emit (node:events:530:35)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+Node.js v20.12.2
+Supabase credentials are missing. Running in memory mode for local development.
+Supabase credentials are missing. Running in memory mode for local development.
+Supabase credentials are missing. Running in memory mode for local development.
+Supabase credentials are missing. Running in memory mode for local development.
+Supabase credentials are missing. Running in memory mode for local development.
+Supabase credentials are missing. Running in memory mode for local development.
+^C

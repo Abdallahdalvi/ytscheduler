@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Curator | Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#0055ff","primary-container": "#0055ff",
+                        "on-primary": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "on-surface": "#1a1c1c",
+                        "secondary": "#5f5e5e",
+                        "surface-container": "#eeeeee",
+                        "surface-container-low": "#f3f3f3",
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#d1d5db",
+                        "outline-variant": "#e5e7eb",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        :root {
+            --primary-blue: #0055ff;
+            --primary-blue-dark: #0044cc;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: #f9f9f9; color: #1a1c1c; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+        .active-icon { font-variation-settings: 'FILL' 1; }
+        .sidebar-scroll::-webkit-scrollbar { width: 4px; }
+        .sidebar-scroll::-webkit-scrollbar-thumb { background: #eeeeee; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface">
+<header class="bg-[#f9f9f9]/80 backdrop-blur-md font-['Inter'] tracking-tight text-sm font-medium docked full-width top-0 sticky z-50 flex justify-between items-center w-full px-6 py-3">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface cursor-pointer p-2 hover:bg-[#eeeeee] rounded-full transition-colors">menu</span>
+<div class="text-2xl font-black tracking-tighter text-[var(--primary-blue)] flex items-center gap-1">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+            Digital Curator
+        </div>
+</div>
+<div class="hidden md:flex flex-1 max-w-2xl px-8">
+<div class="relative w-full flex items-center">
+<input class="w-full bg-surface-container-low border-none rounded-full px-6 py-2 focus:ring-1 focus:ring-primary text-on-surface placeholder-secondary" placeholder="Search across your editorial data" type="text"/>
+<div class="absolute right-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary cursor-pointer">search</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 md:gap-5">
+<div class="hidden md:flex items-center gap-6 mr-4">
+<span class="text-slate-600 hover:text-[var(--primary-blue)] font-bold border-b-2 border-[var(--primary-blue)] cursor-pointer pb-1">Explore</span>
+<span class="text-slate-600 hover:text-[var(--primary-blue)] cursor-pointer pb-1">Trending</span>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] text-white rounded-full font-bold active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-sm">video_call</span>
+<span>Create</span>
+</button>
+<div class="relative group">
+<span class="material-symbols-outlined text-slate-600 p-2 hover:bg-[#eeeeee] rounded-full cursor-pointer transition-colors" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full"></span>
+</div>
+<img alt="User Profile" class="w-8 h-8 rounded-full object-cover cursor-pointer hover:ring-2 ring-primary transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7box3tOGxRlWBFhpcFFI0YpQMho8jbwce-alSSOxIpCdoDrTL81MVERHoInY_nnt-kAP3RojXagi6VrqreH13ukilVskZyc6xR0Gn4_OKJ8lIF8NUYZwu8RmD-C3qmfHO8vw9pWXbj7S_dL9ZtRvfJzyZHPliRkOqvbKxvY2ay6uc-e7Tl6ztdSBx9tMlCTMn_1spDqvJ5babsDrhIGlyMqlzI0tCS1-vIjzEcxzWCz4U2uaq-CqiJ7aSuXO5FmySLBwoza_UOPYE"/>
+</div>
+</header>
+<div class="bg-[#eeeeee] h-[1px] w-full"></div>
+<div class="flex">
+<aside class="hidden lg:flex h-[calc(100vh-57px)] w-64 sticky top-[57px] bg-[#f3f3f3] flex-col gap-1 py-4 border-r border-[#eeeeee] sidebar-scroll overflow-y-auto">
+<div class="px-6 mb-6">
+<div class="flex items-center gap-3">
+<img alt="Curator Logo" class="w-10 h-10 rounded-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdkq1vOaRGKO3jr9s0GzRZSfyEyg183dLs-kHqL19hVrLqiNCjK38X_Kf16RjQLqYYJAMyWRP6aFNwwctZNYsDqlhNVoq2t5ElL_o35kQ3PfZbaHeMnrlBUkyZ7unBLmFrI08_Tc9sQ54kNotGwtTZAUiL66-8DodHjHD4HA1PUkkfTMdUazJTdbUATF3P-9TtwwBi57mkIEJbsgddjEBW2dayfjBK4LkN0VBPqHe5A_yqE9CO_cSTWFiRLZpNfxvIJsvgBbKe-7_h"/>
+<div>
+<p class="font-bold text-sm text-on-surface">The Curator</p>
+<p class="text-[10px] text-secondary uppercase tracking-widest">Premium Editorial</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-0.5">
+<div class="flex items-center gap-4 px-4 py-3 bg-[#ffffff] text-[var(--primary-blue)] rounded-lg mx-2 shadow-sm font-semibold text-sm cursor-pointer select-none">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span>Dashboard</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 text-slate-600 hover:bg-[#eeeeee] rounded-lg mx-2 transition-all duration-200 cursor-pointer select-none">
+<span class="material-symbols-outlined">add_box</span>
+<span>Create Post</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 text-slate-600 hover:bg-[#eeeeee] rounded-lg mx-2 transition-all duration-200 cursor-pointer select-none">
+<span class="material-symbols-outlined">video_library</span>
+<span>Posts</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 text-slate-600 hover:bg-[#eeeeee] rounded-lg mx-2 transition-all duration-200 cursor-pointer select-none">
+<span class="material-symbols-outlined">psychology</span>
+<span>AI Tools</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 text-slate-600 hover:bg-[#eeeeee] rounded-lg mx-2 transition-all duration-200 cursor-pointer select-none">
+<span class="material-symbols-outlined">analytics</span>
+<span>Analytics</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 text-slate-600 hover:bg-[#eeeeee] rounded-lg mx-2 transition-all duration-200 cursor-pointer select-none">
+<span class="material-symbols-outlined">folder_copy</span>
+<span>Media Library</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 text-slate-600 hover:bg-[#eeeeee] rounded-lg mx-2 transition-all duration-200 cursor-pointer select-none">
+<span class="material-symbols-outlined">layers</span>
+<span>Templates</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 text-slate-600 hover:bg-[#eeeeee] rounded-lg mx-2 transition-all duration-200 cursor-pointer select-none">
+<span class="material-symbols-outlined">calendar_month</span>
+<span>Calendar</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-3 text-slate-600 hover:bg-[#eeeeee] rounded-lg mx-2 transition-all duration-200 cursor-pointer select-none">
+<span class="material-symbols-outlined">notifications</span>
+<span>Notifications</span>
+</div>
+</nav>
+<div class="mt-auto px-4 py-6">
+<div class="bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] p-4 rounded-xl text-white shadow-lg">
+<p class="font-bold text-xs mb-1">PRO ACCESS</p>
+<p class="text-[10px] opacity-90 mb-3 leading-tight">Unlock advanced analytics and AI-powered editorial tools.</p>
+<button class="w-full bg-white text-[var(--primary-blue)] py-2 rounded-lg text-xs font-bold hover:bg-slate-50 transition-colors">Upgrade to Pro</button>
+</div>
+<div class="mt-6 flex flex-col gap-1">
+<div class="flex items-center gap-4 px-4 py-2 text-slate-600 hover:bg-[#eeeeee] rounded-lg cursor-pointer transition-all">
+<span class="material-symbols-outlined text-lg">settings</span>
+<span class="text-xs font-medium">Settings</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-2 text-slate-600 hover:bg-[#eeeeee] rounded-lg cursor-pointer transition-all">
+<span class="material-symbols-outlined text-lg">help</span>
+<span class="text-xs font-medium">Help</span>
+</div>
+<div class="flex items-center gap-4 px-4 py-2 text-primary hover:bg-blue-50 rounded-lg cursor-pointer transition-all mt-2">
+<span class="material-symbols-outlined text-lg">link_off</span>
+<span class="text-xs font-medium">Disconnect</span>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 min-w-0 p-4 md:p-8 overflow-x-hidden">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+<div class="space-y-1">
+<h1 class="text-3xl md:text-4xl font-black tracking-tighter text-on-surface">Welcome back! Managing Ubiqedge</h1>
+<p class="text-secondary text-sm font-medium">Your editorial performance at a glance. Let's make something impactful today.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-6 py-2.5 bg-surface-container-lowest text-on-surface font-semibold rounded-xl border border-outline-variant hover:bg-surface-bright transition-all shadow-sm">
+                    Refresh Data
+                </button>
+<button class="px-6 py-2.5 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] text-white font-bold rounded-xl active:scale-95 transition-transform shadow-md flex items-center gap-2">
+<span class="material-symbols-outlined">add</span>
+                    Create Post
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+<div class="col-span-1 lg:col-span-2 row-span-2 bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/30 hover:border-primary/30 transition-all flex flex-col justify-between group">
+<div class="flex justify-between items-start">
+<div>
+<span class="text-label text-secondary uppercase tracking-widest font-bold text-[10px]">Primary Reach</span>
+<h3 class="text-5xl font-black tracking-tighter text-primary mt-1">1,075</h3>
+<p class="text-on-surface font-semibold text-lg">Tracked Views</p>
+</div>
+<div class="bg-primary/5 p-3 rounded-full text-primary">
+<span class="material-symbols-outlined text-3xl">visibility</span>
+</div>
+</div>
+<div class="mt-8">
+<div class="flex items-center gap-2 text-green-600 font-bold text-sm mb-4">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+12.4% from last week</span>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-6 border-t border-surface-container">
+<div>
+<p class="text-secondary text-xs">Subscribers</p>
+<p class="text-xl font-bold text-on-surface">4</p>
+</div>
+<div>
+<p class="text-secondary text-xs">Engagement Rate</p>
+<p class="text-xl font-bold text-on-surface">1.49%</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl shadow-sm border border-outline-variant hover:border-primary/20 transition-all">
+<p class="text-secondary text-xs font-semibold uppercase tracking-tight mb-2">Total Videos</p>
+<div class="flex items-end justify-between">
+<span class="text-3xl font-black text-on-surface">2</span>
+<div class="w-12 h-6 bg-green-100 rounded-full flex items-center justify-center text-[10px] font-bold text-green-700">Live</div>
+</div>
+<div class="mt-3 flex gap-4 text-[10px] font-medium text-secondary">
+<span>Published: <span class="text-on-surface">2</span></span>
+<span>Scheduled: <span class="text-on-surface">0</span></span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl shadow-sm border border-outline-variant hover:border-primary/20 transition-all">
+<p class="text-secondary text-xs font-semibold uppercase tracking-tight mb-2">Total Watch Hours</p>
+<div class="flex items-end justify-between">
+<span class="text-3xl font-black text-on-surface">0.3h</span>
+<span class="material-symbols-outlined text-secondary opacity-30">timer</span>
+</div>
+<p class="mt-3 text-[10px] text-secondary font-medium">Avg Watch Duration: <span class="text-on-surface">20s</span></p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl shadow-sm border border-outline-variant hover:border-primary/20 transition-all">
+<p class="text-secondary text-xs font-semibold uppercase tracking-tight mb-2">Total Likes</p>
+<div class="flex items-end justify-between">
+<span class="text-3xl font-black text-on-surface">16</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<p class="mt-3 text-[10px] text-secondary font-medium">Total Comments: <span class="text-on-surface">0</span></p>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-2xl shadow-sm border border-outline-variant border-l-4 border-l-error">
+<p class="text-secondary text-xs font-semibold uppercase tracking-tight mb-2">Failed Uploads</p>
+<div class="flex items-end justify-between">
+<span class="text-3xl font-black text-on-surface">0</span>
+<span class="material-symbols-outlined text-error">report</span>
+</div>
+<p class="mt-3 text-[10px] text-secondary font-medium">System status: <span class="text-green-600 font-bold uppercase">Optimal</span></p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+<div class="bg-surface-container p-6 rounded-2xl flex flex-col justify-between min-h-[160px]">
+<div>
+<p class="text-secondary text-xs font-bold uppercase mb-1">Avg Views</p>
+<p class="text-secondary text-[10px] mb-4">Public Videos</p>
+</div>
+<div class="flex items-center justify-between">
+<p class="text-4xl font-black text-on-surface">175</p>
+<span class="material-symbols-outlined text-secondary/40">bar_chart</span>
+</div>
+</div>
+<div class="bg-surface-container p-6 rounded-2xl flex flex-col justify-between min-h-[160px]">
+<div>
+<p class="text-secondary text-xs font-bold uppercase mb-1">Content Splits</p>
+<p class="text-secondary text-[10px] mb-4">Videos vs Shorts</p>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<span class="text-xs text-secondary">Videos</span>
+<span class="text-sm font-bold">10</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-secondary">Shorts</span>
+<span class="text-sm font-bold">339</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container p-6 rounded-2xl flex flex-col justify-between min-h-[160px]">
+<div>
+<p class="text-secondary text-xs font-bold uppercase mb-1">Avg Engagement</p>
+<p class="text-secondary text-[10px] mb-4">Content Type Breakdown</p>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<span class="text-xs text-secondary">Videos</span>
+<span class="text-sm font-bold text-primary">10.00%</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs text-secondary">Shorts</span>
+<span class="text-sm font-bold text-primary">1.28%</span>
+</div>
+</div>
+</div>
+<div class="bg-gradient-to-br from-surface-container-lowest to-surface-container p-1 rounded-2xl shadow-sm group cursor-pointer overflow-hidden relative border border-outline-variant">
+<div class="absolute -right-4 -bottom-4 opacity-10 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-9xl text-primary">insights</span>
+</div>
+<div class="bg-surface-container-lowest h-full p-5 rounded-xl z-10 relative">
+<p class="font-black text-primary text-xl mb-1">Analytics</p>
+<p class="text-secondary text-xs leading-relaxed mb-4">Deep dive into your audience behavior and content performance trends.</p>
+<span class="text-primary text-xs font-bold flex items-center gap-1 group-hover:gap-2 transition-all">
+                        View Full Report <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-sm border border-outline-variant flex flex-col md:flex-row">
+<div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+<div class="bg-primary/10 w-fit p-3 rounded-2xl mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">add_box</span>
+</div>
+<h2 class="text-3xl font-black tracking-tighter text-on-surface mb-3">Create Post</h2>
+<p class="text-secondary font-medium leading-relaxed mb-8 max-w-md">Ready to share your next story? Upload your content, optimize with AI tools, and schedule across your editorial calendar in just a few clicks.</p>
+<button class="w-fit px-8 py-4 bg-gradient-to-br from-[var(--primary-blue)] to-[var(--primary-blue-dark)] text-white font-bold rounded-2xl active:scale-95 transition-transform shadow-lg shadow-primary/20 flex items-center gap-3">
+<span class="material-symbols-outlined">rocket_launch</span>
+                    Start Creating Now
+                </button>
+</div>
+<div class="w-full md:w-1/2 min-h-[300px] bg-surface-container relative">
+<img alt="Content creation studio" class="w-full h-full object-cover grayscale opacity-50 mix-blend-multiply" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKwR5uKO5yqDwJz_GXUH6cYTpB27lLrvU5KgHNFzP1EQq-aVGamL5mrrSCK2RH-YfxqsXYubuzocbmjBIbbr7vBym9ve5sQ7C-VJGGYP1nXpqYhXqjfbvGNvFf5GHM_YjXMW2S3e64IU0Sjm0mvYK2lZiMOgqHMGyJxdREGf3swlQ_SrzMjKQ1Ohb-uu3_VX4IFNxPB3ePrsDOp4M6x_uQu9onICve1YDZmnDFHq0BoQDUZ5-4LG3cI7M47vb4UcV6NrwnvFDRjeB0"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-transparent to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6 flex gap-3">
+<div class="flex-1 bg-white/80 backdrop-blur-md p-4 rounded-xl shadow-xl">
+<p class="text-[10px] font-bold text-secondary uppercase mb-1">Editor AI</p>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="bg-primary h-full w-2/3"></div>
+</div>
+</div>
+<div class="flex-1 bg-white/80 backdrop-blur-md p-4 rounded-xl shadow-xl">
+<p class="text-[10px] font-bold text-secondary uppercase mb-1">Upload Pipeline</p>
+<p class="text-xs font-bold text-on-surface">Ready</p>
+</div>
+</div>
+</div>
+</div>
+<footer class="mt-16 pb-8 border-t border-surface-container pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-2 text-secondary">
+<span class="text-sm font-bold">MediaFlow</span>
+<span class="text-xs opacity-50">© 2024 Digital Curator Dashboard</span>
+</div>
+<div class="flex gap-8">
+<span class="text-xs text-secondary hover:text-primary cursor-pointer transition-colors">Privacy Policy</span>
+<span class="text-xs text-secondary hover:text-primary cursor-pointer transition-colors">Terms of Service</span>
+<span class="text-xs text-secondary hover:text-primary cursor-pointer transition-colors">Support</span>
+</div>
+</footer>
+</main>
+</div>
+
+</body></html>
