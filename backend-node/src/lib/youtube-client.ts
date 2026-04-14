@@ -36,11 +36,11 @@ export function hasClientSecret(): boolean {
   return fs.existsSync(CLIENT_SECRET_PATH);
 }
 
-function getRedirectUri() {
-  return process.env.OAUTH_REDIRECT_URI || "https://ytscheduler.dalvi.cloud/api/auth/callback";
+function getRedirectUri(override?: string) {
+  return override || process.env.OAUTH_REDIRECT_URI || "https://ytscheduler.dalvi.cloud/api/auth/callback";
 }
 
-export function getOAuthClient() {
+export function getOAuthClient(redirectUriOverride?: string) {
   if (!hasClientSecret()) {
     throw new Error(
       "client_secret.json not found. Download it from Google Cloud Console and place it in the project root folder.",
@@ -48,7 +48,7 @@ export function getOAuthClient() {
   }
   const secrets = JSON.parse(fs.readFileSync(CLIENT_SECRET_PATH, "utf-8"));
   const web = secrets.web || secrets.installed;
-  const redirectUri = getRedirectUri();
+  const redirectUri = getRedirectUri(redirectUriOverride);
   console.log(`[OAuth] Using redirect URI: ${redirectUri}`);
   return new google.auth.OAuth2(web.client_id, web.client_secret, redirectUri);
 }
@@ -57,8 +57,8 @@ export function getOAuthClient() {
  * Returns a fully authenticated OAuth2 client with background token persistence.
  * Targeted for a specific userId.
  */
-export function getAuthenticatedClient(tokenData: any, userId: string) {
-  const client = getOAuthClient();
+export function getAuthenticatedClient(tokenData: any, userId: string, redirectUriOverride?: string) {
+  const client = getOAuthClient(redirectUriOverride);
   const accessToken = tokenData.access_token || tokenData.token;
   const refreshToken = tokenData.refresh_token;
 
@@ -103,8 +103,8 @@ export function getAuthenticatedClient(tokenData: any, userId: string) {
   return client;
 }
 
-export function getYouTubeClient(tokenData: Record<string, unknown>, userId: string) {
-  const auth = getAuthenticatedClient(tokenData, userId);
+export function getYouTubeClient(tokenData: Record<string, unknown>, userId: string, redirectUriOverride?: string) {
+  const auth = getAuthenticatedClient(tokenData, userId, redirectUriOverride);
   return google.youtube({ version: "v3", auth });
 }
 

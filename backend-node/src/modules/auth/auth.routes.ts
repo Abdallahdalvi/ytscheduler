@@ -21,7 +21,11 @@ authRouter.get("/url", (req: AuthenticatedRequest, res) => {
     });
   }
   try {
-    const client = getOAuthClient();
+    const protocol = req.protocol;
+    const host = req.get("host"); // includes port if present
+    const redirectUri = `${protocol}://${host}/api/auth/callback`;
+    
+    const client = getOAuthClient(redirectUri);
     const url = client.generateAuthUrl({
       access_type: "offline",
       scope: YOUTUBE_SCOPES,
@@ -43,7 +47,11 @@ authRouter.get("/callback", async (req, res) => {
   if (!userId) return res.status(400).send("Missing state (userId)");
 
   try {
-    const client = getOAuthClient();
+    const protocol = req.protocol;
+    const host = req.get("host");
+    const redirectUri = `${protocol}://${host}/api/auth/callback`;
+
+    const client = getOAuthClient(redirectUri);
     const { tokens } = await client.getToken(code);
     client.setCredentials(tokens);
 
