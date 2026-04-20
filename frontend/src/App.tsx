@@ -15,6 +15,7 @@ const TemplatesPage = lazy(() => import('./pages/TemplatesPage'))
 const ActivityPage = lazy(() => import('./pages/ActivityPage'))
 const MediaLibraryPage = lazy(() => import('./pages/MediaLibraryPage'))
 const NotificationsPage = lazy(() => import('./pages/NotificationsPage'))
+const ReportingDashboard = lazy(() => import('./pages/ReportingDashboard'))
 
 function RouteFallback() {
   return (
@@ -68,6 +69,7 @@ function MainLayout() {
             <Route path="/templates" element={<TemplatesPage authStatus={youtubeStatus} authLoading={ytLoading} />} />
             <Route path="/activity" element={<ActivityPage authStatus={youtubeStatus} authLoading={ytLoading} />} />
             <Route path="/analytics" element={<Analytics authStatus={youtubeStatus} authLoading={ytLoading} />} />
+            <Route path="/reports" element={<ReportingDashboard authStatus={youtubeStatus} />} />
             <Route path="/settings" element={<SettingsPage authStatus={youtubeStatus} authLoading={ytLoading} />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

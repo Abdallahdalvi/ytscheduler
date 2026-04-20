@@ -1,7 +1,7 @@
 import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import {
   LayoutDashboard, Calendar, Upload,
-  BarChart2, Settings, PlayCircle, LogOut, ChevronRight, ClipboardList, ScrollText, FolderOpen, Bell, Menu, X
+  BarChart2, Settings, PlayCircle, LogOut, ChevronRight, ClipboardList, ScrollText, FolderOpen, Bell, Menu, X, TrendingUp
 } from 'lucide-react'
 import toast from 'react-hot-toast'
 import { useState, useEffect } from 'react'
@@ -13,6 +13,7 @@ const NAV_ITEMS = [
   { to: '/', icon: LayoutDashboard, label: 'Dashboard' },
   { to: '/schedule', icon: Upload, label: 'Upload Queue' },
   { to: '/analytics', icon: BarChart2, label: 'Analytics' },
+  { to: '/reports', icon: TrendingUp, label: 'Autopilot Reports' },
   { to: '/videos', icon: PlayCircle, label: 'Videos' },
   { to: '/calendar', icon: Calendar, label: 'Calendar' },
   { to: '/templates', icon: ClipboardList, label: 'Templates' },
@@ -32,6 +33,8 @@ function getPageInfo(pathname, user) {
       return { title: 'Upload Queue', subtitle: 'Schedule and manage your YouTube videos' }
     case '/analytics':
       return { title: 'Analytics', subtitle: 'Performance tracking' }
+    case '/reports':
+      return { title: 'Autopilot Reports', subtitle: 'Monthly AI-powered analytics presentations' }
     case '/videos':
       return { title: 'Videos', subtitle: 'Manage content and bulk actions' }
     case '/calendar':

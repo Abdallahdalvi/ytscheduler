@@ -22,6 +22,7 @@ import { reportingRouter } from "./modules/reporting/reporting.routes.js";
 import { requireAuth } from "./middleware/auth.js";
 
 import { startWorker } from "./lib/worker.js";
+import { initCronJobs } from "./cron-scheduler.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const UPLOAD_DIR = path.join(__dirname, "../../uploads");
@@ -99,4 +100,5 @@ app.listen(finalPort, () => {
   // eslint-disable-next-line no-console
   console.log(`Node backend running on http://localhost:${finalPort} (serving frontend: ${fs.existsSync(FRONTEND_DIST)})`);
   startWorker();
+  initCronJobs();
 });
